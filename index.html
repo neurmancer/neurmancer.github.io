@@ -5,17 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuro's Digital Dumpster Fire</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="icon.ico">
+    <link rel="icon" href="src/icon.ico">
 </head>
 <body>
 
-        <iframe 
-        src="https://youtube.com" 
-        width="0" 
-        height="0" 
-        allow="autoplay" 
-        title="YouTube Audio">
-        </iframe>
+
 
 
 
@@ -100,6 +94,47 @@
         updateTime();
         setInterval(updateTime, 1000);
     </script>
+
+
+<button class="music-btn" id="musicBtn" title="Play / Pause">▶</button>
+
+<div id="yt-player" style="display:none;"></div>
+
+<script>
+    const btn = document.getElementById('musicBtn');
+    let player = null;
+    let isPlaying = false;
+
+    const VIDEO_ID = "mbJ0aXxpTfM";
+
+    btn.addEventListener('click', () => {
+        if (!player) {
+            const iframe = document.createElement('iframe');
+            iframe.width = "0";
+            iframe.height = "0";
+            iframe.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=${VIDEO_ID}&enablejsapi=1`;
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.style.display = "none";
+            document.getElementById('yt-player').appendChild(iframe);
+            player = iframe;
+            isPlaying = true;
+            btn.textContent = "❚❚";
+            btn.classList.add('playing');
+        } else {
+            if (isPlaying) {
+                player.src = player.src.replace('autoplay=1', 'autoplay=0');
+                btn.textContent = "▶";
+                btn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                player.src = player.src.replace('autoplay=0', 'autoplay=1');
+                btn.textContent = "❚❚";
+                btn.classList.add('playing');
+                isPlaying = true;
+            }
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -208,3 +208,45 @@ li::before {
     body { padding: 25px 15px; }
     .card { padding: 18px 16px; }
 }
+
+
+
+.music-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #39ff14;
+    border-radius: 10px;
+    background: transparent;
+    color: #39ff14;
+    font-size: 1.6em;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 0 12px #39ff14,
+        0 0 24px rgba(57, 255, 20, 0.35);
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+.music-btn:hover {
+    box-shadow: 
+        0 0 20px #39ff14,
+        0 0 40px rgba(57, 255, 20, 0.55),
+        0 0 60px rgba(57, 255, 20, 0.25);
+    text-shadow: 0 0 10px #39ff14;
+    transform: scale(1.08);
+}
+
+.music-btn.playing {
+    background: rgba(57, 255, 20, 0.08);
+    box-shadow: 
+        0 0 18px #39ff14,
+        0 0 35px rgba(57, 255, 20, 0.5);
+}
