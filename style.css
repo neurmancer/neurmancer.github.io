@@ -1,0 +1,210 @@
+    /*  Sup?...Now on the web...yeah...you can't escape from me*/
+
+* {
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: 'Courier New', Courier, monospace; 
+    background: #0d1117; 
+    color: #58a6ff; 
+    padding: 40px 20px; 
+    line-height: 1.7; 
+    max-width: 950px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+h1 { 
+    color: #39ff14; 
+    text-shadow: 0 0 10px #39ff14; 
+    font-size: 3.2em;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+h2 { 
+    color: #58a6ff; 
+    text-align: center;
+    font-size: 1.4em;
+    margin-top: 0;
+}
+
+h3 {
+    color: #39ff14;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 8px;
+    margin-top: 50px;
+}
+
+h4 {
+    color: #c084fc;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+p {
+    margin: 16px 0;
+}
+
+a {
+    color: #39ff14;
+    text-decoration: none;
+    border-bottom: 1px dashed #39ff14;
+    transition: all 0.2s;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #39ff14;
+    border-bottom: 1px solid #39ff14;
+}
+
+.sheLovesPurple { 
+    color: #c084fc; 
+    font-weight: bold; 
+    font-size: 1.15em;
+    text-shadow: 0 0 8px #c084fc;
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #39ff14; }
+    to { text-shadow: 0 0 20px #39ff14, 0 0 30px #39ff14; }
+}
+
+.card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 25px 0;
+}
+
+.card:hover {
+    border-color: #39ff14;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.15);
+}
+
+.tag {
+    display: inline-block;
+    background: #21262d;
+    color: #8b949e;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    margin: 4px 6px 4px 0;
+    border: 1px solid #30363d;
+}
+
+.tag.hot {
+    color: #ff7b72;
+    border-color: #ff7b72;
+    background: #2d1b1b;
+}
+
+.tag.purple {
+    color: #c084fc;
+    border-color: #c084fc;
+    background: #1f1a2e;
+}
+
+.footer {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #8b949e;
+    border-top: 1px solid #30363d;
+    padding-top: 30px;
+}
+
+.time-box {
+    background: #161b22;
+    border: 1px solid #30363d;
+    padding: 12px 18px;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+.warning-box {
+    background: #2d1b1b;
+    border: 1px solid #ff7b72;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: #ff7b72;
+}
+
+.list-item {
+    margin: 8px 0 8px 18px;
+    position: relative;
+}
+
+.list-item::before {
+    content: "→";
+    position: absolute;
+    left: -18px;
+    color: #39ff14;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 12px 0;
+}
+
+li {
+    margin: 7px 0;
+    padding-left: 18px;
+    position: relative;
+}
+
+li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #39ff14;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid #30363d;
+    margin: 18px 0;
+}
+
+.codeish {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    overflow-x: auto;
+    color: #8b949e;
+    margin: 12px 0;
+}
+
+.repo-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.95em;
+}
+
+
+@media (max-width: 600px) {
+    h1 { font-size: 2.2em; }
+    body { padding: 25px 15px; }
+    .card { padding: 18px 16px; }
+}
