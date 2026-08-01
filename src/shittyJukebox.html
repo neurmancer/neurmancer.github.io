@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shitty Jukebox</title>
+        <link rel="stylesheet" href="../style.css">
+        <link rel="icon" href="icon.ico">
+</head>
+<body>
+
+    <a href="../index.html" class="back-link">← back to the dumpster fire</a>
+
+    <h1 class="glow">Shitty Jukebox</h1>
+    <h2>
+        The repo where I resurrect mySpace from its ashes
+    </h2>
+
+    <div class="card">
+        <p>
+            'Member my sleep-deprived raccoon joke?Yeah this repo where he got a <code>soundtrack</code> on the CLI
+            And here are the 'Genre' tags
+        </p>
+        <p>
+            <span class="tag"><strong>Nightcore</strong></span>
+            <span class="tag">Literal 00s Emo Genre Resurrection</span>
+            <span class="tag">White Girl PoP</span>
+            <span class="tag">New Wave of British Heavy Metal</span>
+        </p>
+        <p class="repo-link">
+            The Deal: <a href="https://github.com/neurmancer/ShittyjukeboxCLI" target="_blank">Shitty Jukebox</a>
+        </p>
+    </div>
+
+    <div class="footer">
+        Made with love, caffeine, questionable life choices,<br>
+        and a shit-ton of <span class="sheLovesPurple">cusses</span><br>
+        <br>
+        © 2026 — still not sure how this is live but here we are<br>
+        <br>
+        <a href="../index.html">← return to Neuro's Digital Dumpster Fire</a>
+    </div>
+
+<button class="music-btn" id="musicBtn" title="Play / Pause">▶</button>
+
+<div id="yt-player" style="display:none;"></div>
+
+<script>
+    const btn = document.getElementById('musicBtn');
+    let player = null;
+    let isPlaying = false;
+
+    const VIDEO_ID = "yCLZi_ZQmcc";
+
+    btn.addEventListener('click', () => {
+        if (!player) {
+            const iframe = document.createElement('iframe');
+            iframe.width = "0";
+            iframe.height = "0";
+            iframe.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=${VIDEO_ID}&enablejsapi=1`;
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.style.display = "none";
+            document.getElementById('yt-player').appendChild(iframe);
+            player = iframe;
+            isPlaying = true;
+            btn.textContent = "❚❚";
+            btn.classList.add('playing');
+        } else {
+            if (isPlaying) {
+                player.src = player.src.replace('autoplay=1', 'autoplay=0');
+                btn.textContent = "▶";
+                btn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                player.src = player.src.replace('autoplay=0', 'autoplay=1');
+                btn.textContent = "❚❚";
+                btn.classList.add('playing');
+                isPlaying = true;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
