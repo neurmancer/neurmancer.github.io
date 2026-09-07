@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I am not a Corpo™</title>
+        <link rel="stylesheet" href="../style.css">
+        <link rel="icon" href="icon.ico">
+</head>
+<body>
+
+    <a href="../index.html" class="back-link">← back to the dumpster fire</a>
+
+    <h1 class="glow">To-Do App</h1>
+    
+    
+    <h3>//I forget shit otherwise </h3>
+
+    <div class="card">
+        <p>
+            <span class="tag hot"><strong>I really have a bad sense of Polishing things</strong></span>
+            <span class="tag hot">I am not a corpo</span>
+            <span class="tag">Unless?</span>
+            <span class="tag hot">To-Do App</span>
+            <span class="tag hot">I really gotta stop using those fucking tags</span>
+        </p>
+        
+        <p class="repo-link">
+            The Deal: <a href="https://github.com/neurmancer/TODO-SERVER" target="_blank">DVD ScreensaverCLI</a>
+        </p>
+    </div>
+    <hr>
+
+    <h3>//I am a Web Guy now?</h3>
+    <div class="card">
+        <p>A fucking To-Do server running on localhost (PORT 8080 to be specific)</p>
+        <p>
+            <ul>
+                <li>A todo app well...not working yet (at least dev branch) but an app nonetheless</li>
+                <li>Written in C (ofc C duh...)</li>
+                <li>Still adding shit so...I don't know what to tell about it rn</li>
+                <li>I am Shy > /// < </li>
+                <li>If you need something like that go use Google notes or smthg</li>
+            </ul>
+        </p>
+    </div>
+    <hr>
+    <h3>//Technical Shit</h3>
+    <div class="card">
+        <p>Dev branch(The one that's under active development) includes</p>
+        <p>
+            <ul>
+                <li>A main.c to run the server</li>
+                <li>Helper functions and a hand-rolled router header</li>
+                <li>A template parser that I haven't even tested</li>
+                <li>And <i class="glow"></i>Gloriously broken< </li>
+                <li>A configurable makefile so you don't need to memorize my shitty header naming</li>
+            </ul>
+        </p>
+    </div>
+
+
+    <div class="footer">
+        <span class="sheLovesPurple">I DON'T WANNA BE AN AMERICAN IDIOT</span><br>
+        <br>
+        © 2026(wtf does that even mean? Have I gotten the copyright of the year 2026?) — My Sincere Contacts thx for dropping by<br>
+        <br>
+        <a href="../index.html">← return to Neuro's Digital Dumpster Fire</a>
+    </div>
+
+<button class="music-btn" id="musicBtn" title="Play / Pause">▶</button>
+
+<div id="yt-player" style="display:none;"></div>
+
+<script>
+    const btn = document.getElementById('musicBtn');
+    let player = null;
+    let isPlaying = false;
+
+    const VIDEO_ID = "iPHhItnRu0g";
+
+    btn.addEventListener('click', () => {
+        if (!player) {
+            const iframe = document.createElement('iframe');
+            iframe.width = "0";
+            iframe.height = "0";
+            iframe.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=${VIDEO_ID}&enablejsapi=1`;
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.style.display = "none";
+            document.getElementById('yt-player').appendChild(iframe);
+            player = iframe;
+            isPlaying = true;
+            btn.textContent = "❚❚";
+            btn.classList.add('playing');
+        } else {
+            if (isPlaying) {
+                player.src = player.src.replace('autoplay=1', 'autoplay=0');
+                btn.textContent = "▶";
+                btn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                player.src = player.src.replace('autoplay=0', 'autoplay=1');
+                btn.textContent = "❚❚";
+                btn.classList.add('playing');
+                isPlaying = true;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
