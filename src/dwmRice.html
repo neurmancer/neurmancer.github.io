@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWM Rice</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="icon.ico">
+</head>
+<body>
+    <a href="../index.html" class="back-link">← back to the dumpster fire</a>
+    <h1 class="glow">MIDNIGHT RELAY</h1>
+    <h2>A retro-cyberpunk DWM desktop for the after-hours terminal goblins</h2>
+
+    <div class="card">
+        <p>Deep navy, violet, electric blue and phosphor green...I may have gone a little feral with the desktop OwO</p>
+        <p><span class="tag">DWM</span> <span class="tag">Linux</span> <span class="tag purple">cyberpunk</span> <span class="tag hot">rice addiction</span></p>
+        <p class="repo-link">The Deal: <a href="https://github.com/neurmancer/DWMRice" target="_blank">DWM Rice</a></p>
+    </div>
+    <h3>// what's in the rice</h3>
+    <div class="card">
+        <ul>
+            <li>Patched DWM with workspaces and two status bars</li>
+            <li>System telemetry and music status through MPRIS</li>
+            <li>Wallpaper, notifications, screenshots and session tools</li>
+            <li>Dual-monitor setup tuned for my own rig (check the repo before borrowing my monitor shit)</li>
+        </ul>
+        <p>The README has installation, controls and display setup for anyone brave enough to try.</p>
+    </div>
+    <div class="footer">
+        Made with caffeine and questionable life choices<br>
+        <span class="sheLovesPurple">and a soundtrack...eventually UwU</span><br><br>
+        © 2026 — still not sure how this is live but here we are<br><br>
+        <a href="../index.html">← return to Neuro's Digital Dumpster Fire</a>
+    </div>
+
+<button class="music-btn" id="musicBtn" title="Play / Pause">▶</button>
+
+<div id="yt-player" style="display:none;"></div>
+
+<script>
+    const btn = document.getElementById('musicBtn');
+    let player = null;
+    let isPlaying = false;
+
+    const VIDEO_ID = "hvUUtwY0DcQ";
+
+    btn.addEventListener('click', () => {
+        if (!player) {
+            const iframe = document.createElement('iframe');
+            iframe.width = "0";
+            iframe.height = "0";
+            iframe.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=${VIDEO_ID}&enablejsapi=1`;
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.style.display = "none";
+            document.getElementById('yt-player').appendChild(iframe);
+            player = iframe;
+            isPlaying = true;
+            btn.textContent = "❚❚";
+            btn.classList.add('playing');
+        } else {
+            if (isPlaying) {
+                player.src = player.src.replace('autoplay=1', 'autoplay=0');
+                btn.textContent = "▶";
+                btn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                player.src = player.src.replace('autoplay=0', 'autoplay=1');
+                btn.textContent = "❚❚";
+                btn.classList.add('playing');
+                isPlaying = true;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

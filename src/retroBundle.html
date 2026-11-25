@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Bundle</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="icon.ico">
+</head>
+<body>
+    <a href="../index.html" class="back-link">← back to the dumpster fire</a>
+    <h1 class="glow">RETRO BUNDLE</h1>
+    <h2>Classic games to distract you from whatever the fuck you were supposed to do</h2>
+
+    <div class="card">
+        <p>Some old-school games got dragged into a bundle. Productivity has left the chat.</p>
+        <p><span class="tag">C</span> <span class="tag">retro shit</span> <span class="tag purple">raylib</span> <span class="tag hot">just one more game</span></p>
+        <p class="repo-link">The Deal: <a href="https://github.com/neurmancer/Retro-Bundle" target="_blank">Retro Bundle</a></p>
+    </div>
+    <h3>// the game collection</h3>
+    <div class="card">
+        <ul>
+            <li>Pong (the rite of passage)</li>
+            <li>Breakout</li>
+            <li>Tetris</li>
+            <li>Partially Physically Accurate Galaga (yes really)</li>
+            <li>2048</li>
+        </ul>
+        <p>There's also Blackjack in the repo details, because apparently the arcade needed gambling too.</p>
+        <p>Build instructions and dependencies are in the repo. Go play instead of reading my marketing shit.</p>
+    </div>
+    <div class="footer">
+        Made with caffeine and questionable life choices<br>
+        <span class="sheLovesPurple">and a soundtrack...eventually UwU</span><br><br>
+        © 2026 — still not sure how this is live but here we are<br><br>
+        <a href="../index.html">← return to Neuro's Digital Dumpster Fire</a>
+    </div>
+
+<button class="music-btn" id="musicBtn" title="Play / Pause">▶</button>
+
+<div id="yt-player" style="display:none;"></div>
+
+<script>
+    const btn = document.getElementById('musicBtn');
+    let player = null;
+    let isPlaying = false;
+
+    const VIDEO_ID = "lXnw5hrc1bs";
+
+    btn.addEventListener('click', () => {
+        if (!player) {
+            const iframe = document.createElement('iframe');
+            iframe.width = "0";
+            iframe.height = "0";
+            iframe.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=${VIDEO_ID}&enablejsapi=1`;
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.style.display = "none";
+            document.getElementById('yt-player').appendChild(iframe);
+            player = iframe;
+            isPlaying = true;
+            btn.textContent = "❚❚";
+            btn.classList.add('playing');
+        } else {
+            if (isPlaying) {
+                player.src = player.src.replace('autoplay=1', 'autoplay=0');
+                btn.textContent = "▶";
+                btn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                player.src = player.src.replace('autoplay=0', 'autoplay=1');
+                btn.textContent = "❚❚";
+                btn.classList.add('playing');
+                isPlaying = true;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

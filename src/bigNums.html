@@ -19,7 +19,7 @@
     <div class="card">
         <p class="glow">BIG NUMS</p><br>
         <p class="repo-link">
-            The Deal: <a href="https://github.com/neurmancer/Big-Nums" target="_blank">Big Nums OwO</a>
+            The Deal: <a href="https://github.com/Neuro-Software-Distribution/Big-Nums" target="_blank">Big Nums OwO</a>
         </p>
     </div>
 
@@ -30,11 +30,12 @@
         <p>This repo is for an arbitray precision arithmatics lib and if you're intrested you should look into repo.</p>
         <i>(and yeah this is the reason I call it big num because I can't spell the abribitiyiy precision lib)</i>
         &nbsp;
+        <p>Still experimental and undergoing major changes. ABI 3 needs applications to initialize and destroy their numbers properly, so check the migration notes before updating your shit.</p>
         <p>It includes:</p>
         <ul>
-            <li>Big Ints</li>
-            <li>Big Floats</li>
-            <li>Multipication Functions that uses hand-rolled FFT</li>
+            <li>Signed Big Ints with dynamically growing storage</li>
+            <li>Signed binary Big Floats with configurable precision</li>
+            <li>Multiplication with verified FFT and a schoolbook fallback</li>
             <li>Well...those were the selling points...No more shit to advertise here</li>
         </ul>
     </div>
@@ -45,7 +46,7 @@
         <ul>
             <li>Documentation (but it's too corpo-like)</li>
             <li>demo.c for a quick start</li>
-            <li>test.c where I stress-test all the fucking zoo</li>
+            <li>Regression checks to stress-test the fucking zoo</li>
             <li>a makefile that you can use tweak with compile time arguments</li>
         </ul>
     </div>
